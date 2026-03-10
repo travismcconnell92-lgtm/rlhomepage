@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ready Legal | Orlando Business & Construction Attorney</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy: #0b2a4a;
+  --navy-mid: #143a63;
+  --orange: #ff8c2a;
+  --orange-dark: #e67a1f;
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --gray: #e4e8f0;
+  --text: #1a2332;
+  --text-light: #5a6478;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+  background: var(--navy);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.logo:hover { color: var(--orange); }
+
+nav { display: flex; gap: 28px; align-items: center; }
+
+nav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+nav a:hover { color: white; }
+
+.nav-cta {
+  background: var(--orange);
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.3s !important;
+}
+
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(11,42,74,0.95) 40%, rgba(11,42,74,0.5) 100%),
+    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
+  background-size: cover;
+  background-position: center right;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 48px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px);
+  color: white;
+  line-height: 1.05;
+  max-width: 660px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.25s;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.hero p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.72);
+  max-width: 500px;
+  margin-bottom: 44px;
+  font-weight: 300;
+  line-height: 1.85;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.55s;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+.btn-ghost {
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
+  padding: 14px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  display: inline-block;
+}
+
+.btn-ghost:hover { border-color: white; color: white; background: rgba(255,255,255,0.07); }
+
+/* TRUST BAR */
+
+.trust-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--gray);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-item span { color: var(--orange); font-size: 14px; }
+
+/* SECTIONS */
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 48px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.centered { text-align: center; }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 56px;
+}
+
+.section-sub.centered { margin: 0 auto 56px; max-width: 580px; }
+
+/* PRACTICE AREAS */
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.practice-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--navy);
+  padding: 44px 36px 52px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-top-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  border-radius: 2px;
+  display: block;
+}
+
+.practice-card:hover {
+  border-top-color: var(--orange);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+  transform: translateY(-3px);
+}
+
+.practice-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  transition: background 0.3s;
+}
+
+.practice-card:hover .practice-icon-wrap { background: var(--orange); }
+
+.practice-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.practice-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+.practice-link {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+  transition: color 0.3s;
+}
+
+.practice-card:hover .practice-link { color: var(--orange); }
+
+/* WHY SECTION */
+
+.why-section {
+  background: var(--navy);
+  padding: 96px 48px;
+}
+
+.why-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-image { position: relative; }
+
+.why-image::before {
+  content: '';
+  position: absolute;
+  top: -14px; left: -14px;
+  right: 14px; bottom: 14px;
+  border: 2px solid var(--orange);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.why-image img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.why-content .section-label { color: var(--orange); }
+.why-content .section-title { color: white; }
+
+.why-content p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.9;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+/* RECOGNITION */
+
+.rec-section {
+  background: var(--off-white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
+}
+
+.rec-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.rec-text { max-width: 400px; }
+.rec-text .section-title { font-size: 32px; }
+.rec-text p { font-size: 15px; color: var(--text-light); font-weight: 300; margin-top: 10px; }
+
+.rec-badges { display: flex; gap: 20px; flex-wrap: wrap; }
+
+.rec-badge {
+  background: white;
+  border: 1px solid var(--gray);
+  border-left: 4px solid var(--orange);
+  padding: 24px 28px;
+  border-radius: 3px;
+  min-width: 200px;
+}
+
+.rec-badge .org {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.rec-badge .detail { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+
+/* PRESS */
+
+.press-section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.press-grid {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 48px;
+  align-items: center;
+}
+
+.press-item { display: block; opacity: 0.7; transition: opacity 0.3s, transform 0.2s; }
+.press-item:hover { opacity: 1; transform: translateY(-2px); }
+
+.press-item img {
+  height: 52px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(40%);
+  transition: filter 0.3s;
+}
+
+.press-item:hover img { filter: grayscale(0%); }
+.press-note { font-size: 11px; color: #bbb; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 40px; }
+
+/* SERVICES */
+
+.services-section {
+  background: var(--navy);
+  padding: 96px 48px;
+}
+
+.services-inner { max-width: 1200px; margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  margin-top: 56px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.service-col { background: var(--navy); padding: 44px 32px; }
+
+.service-col h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  color: white;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--orange);
+}
+
+.service-col ul { list-style: none; }
+
+.service-col li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.service-col li::before { content: '—'; color: var(--orange); flex-shrink: 0; font-weight: 600; }
+
+/* TESTIMONIAL */
+
+.testimonial-section { padding: 96px 48px; background: white; }
+
+.testimonial-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+
+.t-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 28px;
+}
+
+.t-quote {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--navy);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.t-quote::before {
+  content: '\201C';
+  font-size: 100px;
+  color: var(--orange);
+  opacity: 0.12;
+  position: absolute;
+  top: -32px; left: -10px;
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.t-author { font-size: 14px; font-weight: 600; color: var(--navy); }
+.t-role { font-size: 13px; color: var(--text-light); margin-top: 4px; font-weight: 300; }
+.t-disclaimer { font-size: 11px; color: #bbb; margin-top: 24px; }
+
+/* CTA / FORM */
+
+.cta-section {
+  background: var(--off-white);
+  border-top: 1px solid var(--gray);
+  padding: 96px 48px;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cta-left p { font-size: 16px; color: var(--text-light); line-height: 1.85; font-weight: 300; margin-bottom: 28px; }
+
+.cta-phone {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--navy);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.cta-phone:hover { color: var(--orange); }
+.cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
+
+.form-box {
+  background: white;
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--orange);
+  padding: 40px 36px;
+  border-radius: 3px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.form-box h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--off-white);
+  margin-bottom: 18px;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: white;
+}
+
+form textarea { resize: vertical; }
+
+form button {
+  background: var(--orange);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+
+form button:hover { background: var(--orange-dark); }
+
+/* FOOTER */
+
+footer { background: #07192c; padding: 56px 48px 28px; }
+
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 28px;
+}
+
+.footer-brand .logo { display: block; margin-bottom: 14px; }
+
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--orange); }
+
+.footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  nav { display: none; }
+  header { padding: 0 24px; }
+  .hero-content { padding: 80px 24px; }
+  .section { padding: 64px 24px; }
+  .practice-grid { grid-template-columns: 1fr; }
+  .why-inner { grid-template-columns: 1fr; }
+  .why-image { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .why-section, .services-section, .rec-section, .press-section, .cta-section { padding: 64px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">READY LEGAL</a>
+  <nav>
+    <a href="https://readylegal.net/our-team/">Counsel</a>
+    <a href="https://readylegal.net/practice-areas/">Practice Areas</a>
+    <a href="https://readylegal.net/pricing/">Pricing</a>
+    <a href="https://readylegal.net/about/">About</a>
+    <a href="https://readylegal.net/articles/">Blog</a>
+    <a href="#intake" class="nav-cta">Get Help</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Orlando, Florida — Construction, Business &amp; Litigation</p>
+    <h1>Prompt. Capable. <em>Ready.</em></h1>
+    <p>Ready Legal gives Orlando's small business community access to effective legal representation when it matters most.</p>
+    <div class="hero-buttons">
+      <a href="tel:4072582002" class="btn-primary">📞 407-258-2002</a>
+      <a href="#intake" class="btn-ghost">Request a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="trust-item"><span>★</span> Best Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Super Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Veteran Owned</span>
+  <span class="trust-item"><span>★</span> Florida Statewide</span>
+</div>
+
+<!-- PRACTICE AREAS -->
+<section class="section">
+  <p class="section-label">What We Do</p>
+  <h2 class="section-title">Practice Areas</h2>
+  <p class="section-sub">Focused representation for contractors, small business owners, and clients who need results in the courtroom or at the negotiating table.</p>
+  <div class="practice-grid">
+
+    <a href="https://readylegal.net/construction-law/" class="practice-card">
+      <div class="practice-icon-wrap">🏗️</div>
+      <h3>Construction Law</h3>
+      <p>Liens, payment disputes, defect claims, contract review and drafting, contractor licensing, DBPR/CILB matters, OSHA, and permitting disputes.</p>
+      <span class="practice-link">Learn More →</span>
+    </a>
+
+    <a href="https://readylegal.net/small-business/" class="practice-card">
+      <div class="practice-icon-wrap">💼</div>
+      <h3>Business Law</h3>
+      <p>Business formation, contract drafting and negotiation, breach of contract, unfair competition, non-competes, co-owner disputes, and collections.</p>
+      <span class="practice-link">Learn More →</span>
+    </a>
+
+    <a href="https://readylegal.net/practice-areas/" class="practice-card">
+      <div class="practice-icon-wrap">⚖️</div>
+      <h3>Litigation</h3>
+      <p>Commercial litigation, construction litigation, evictions, and disputes requiring skilled courtroom representation to protect your interests.</p>
+      <span class="practice-link">Learn More →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- WHY READY LEGAL -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-image">
+      <img src="https://readylegal.net/wp-content/uploads/2023/08/professional-picture-2.jpg" alt="Ready Legal Counsel" style="filter: grayscale(100%);">
+    </div>
+    <div class="why-content">
+      <p class="section-label">Why Ready Legal</p>
+      <h2 class="section-title">Clients First, Always.</h2>
+      <p>Ready Legal was born out of the idea that Orlando's small business community should have access to prompt, capable, and effective representation in their times of need. That core value is embodied in the firm's name.</p>
+      <p>What sets Ready Legal apart is more than legal knowledge — it's business judgment. As an entrepreneur-driven law firm, Ready Legal sees itself as a partner in its clients' success, sharing their drive to grow and thrive.</p>
+      <a href="https://readylegal.net/pricing/" class="btn-primary" style="margin-top:8px;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="rec-section">
+  <div class="rec-inner">
+    <div class="rec-text">
+      <p class="section-label">Awards</p>
+      <h2 class="section-title">Recognized By</h2>
+      <p>Ready Legal's counsel has been recognized by two of the most respected peer-review rating services in the legal industry.</p>
+      <br>
+      <a href="https://readylegal.net/our-team/" class="btn-primary">See Details</a>
+    </div>
+    <div class="rec-badges">
+      <div class="rec-badge">
+        <div class="org">Best Lawyers®</div>
+        <div class="detail">Construction Law<br>Commercial Litigation<br>Regulatory Law</div>
+      </div>
+      <div class="rec-badge">
+        <div class="org">Super Lawyers®</div>
+        <div class="detail">Construction Litigation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AS SEEN IN -->
+<section class="press-section">
+  <p class="section-label centered">Media</p>
+  <h2 class="section-title centered">As Seen In</h2>
+  <div class="press-grid">
+    <a href="https://ampp.mydigitalpublication.com/may-2024/page-28" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2024/08/screenshot-2024-08-13-at-2.03.45e280afpm.png" alt="Publication">
+    </a>
+    <a href="https://www.law.com/dailybusinessreview/2024/07/02/floridas-new-procedure-for-removing-squatters-effective-in-july-use-with-caution/" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2025/05/screenshot-2025-05-07-at-12.56.03e280afpm.png" alt="Daily Business Review">
+    </a>
+    <a href="https://www.roofingcontractor.com/articles/99348-florida-aims-to-standardize-construction-lien-waivers" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2024/08/screenshot-2024-08-13-at-2.05.07e280afpm.png" alt="Roofing Contractor">
+    </a>
+    <a href="https://joom.ag/TDtd/p4" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2025/05/screenshot-2025-05-07-at-12.48.15e280afpm.png" alt="Publication">
+    </a>
+    <a href="https://www.rev.com/blog/ediscovery-tools" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2025/06/screenshot-2025-06-16-at-12.58.31e280afpm-1.png" alt="Rev">
+    </a>
+    <a href="https://www.ehstoday.com/construction/article/55300992/proactive-safety-planning-is-vital-to-construction-safety" class="press-item" target="_blank">
+      <img src="https://readylegal.net/wp-content/uploads/2025/07/screenshot-2025-07-15-at-8.37.09-pm.png" alt="EHS Today">
+    </a>
+  </div>
+  <p class="press-note">No endorsement or affiliation implied.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <p class="section-label centered" style="color:var(--orange);">What We Handle</p>
+    <h2 class="section-title centered" style="color:white;">Services Available</h2>
+    <div class="services-grid">
+
+      <div class="service-col">
+        <h3>Construction Law</h3>
+        <ul>
+          <li>Contract drafting, review, and negotiation</li>
+          <li>Construction payment &amp; defect disputes</li>
+          <li>Construction lien and payment bond claims</li>
+          <li>DBPR/CILB investigations and discipline</li>
+          <li>Contractor licensing applications</li>
+          <li>OSHA citations and safety compliance</li>
+          <li>Local permitting issues and disputes</li>
+        </ul>
+      </div>
+
+      <div class="service-col">
+        <h3>Business Law</h3>
+        <ul>
+          <li>Contract drafting, review, and negotiations</li>
+          <li>Business formation and governance documents</li>
+          <li>Business litigation and breach of contract</li>
+          <li>Unfair competition and misconduct claims</li>
+          <li>Business partner and co-owner disputes</li>
+          <li>Non-compete and non-disclosure agreements</li>
+        </ul>
+      </div>
+
+      <div class="service-col">
+        <h3>Litigation</h3>
+        <ul>
+          <li>General litigation</li>
+          <li>Commercial litigation</li>
+          <li>Construction litigation</li>
+          <li>Evictions and unlawful detainer suits</li>
+          <li>Business to business collections</li>
+          <li>Co-owner and partnership disputes</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="testimonial-inner">
+    <p class="t-label">Feedback</p>
+    <blockquote class="t-quote">
+      I heartily recommend Travis McConnell for your legal needs. He listens to your concerns and offers alternatives towards solving your issues.
+    </blockquote>
+    <div class="t-author">A. Horne</div>
+    <div class="t-role">Prospective Client</div>
+    <p class="t-disclaimer">All legal issues are unique. Client results may vary.</p>
+  </div>
+</section>
+
+<!-- INTAKE FORM -->
+<section class="cta-section" id="intake">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday – Friday &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Jane Smith" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="(407) 555-0000">
+
+        <label>Briefly Describe Your Legal Matter</label>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+
+        <button type="submit">Get Help →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="https://readylegal.net/our-team/">Counsel</a></li>
+          <li><a href="https://readylegal.net/practice-areas/">Practice Areas</a></li>
+          <li><a href="https://readylegal.net/pricing/">Pricing</a></li>
+          <li><a href="https://readylegal.net/about/">About</a></li>
+          <li><a href="https://readylegal.net/articles/">Blog</a></li>
+          <li><a href="#intake">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a>
+          <br><br>
+          Veteran Owned 🇺🇸
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involv

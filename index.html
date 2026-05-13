@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ready Legal | Orlando Business &amp; Construction Attorney</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/css2.css" rel="stylesheet">
 
 <style>
 
@@ -84,6 +84,90 @@ nav a:hover { color: white; }
 }
 
 .nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* HAMBURGER BUTTON */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE MENU */
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: var(--navy-mid);
+  z-index: 99;
+  flex-direction: column;
+  padding: 8px 0 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.mobile-menu.open {
+  display: flex;
+  animation: menuSlideDown 0.22s ease forwards;
+}
+
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu a {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
+
+.mobile-menu .mobile-cta {
+  background: var(--orange);
+  color: white !important;
+  margin: 16px 24px 0;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 14px 28px !important;
+  border-bottom: none !important;
+  transition: background 0.3s !important;
+  letter-spacing: 0.3px;
+}
+
+.mobile-menu .mobile-cta:hover { background: var(--orange-dark) !important; }
 
 /* HERO */
 
@@ -701,6 +785,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 @media (max-width: 960px) {
   nav { display: none; }
+  .hamburger { display: flex; }
   header { padding: 0 24px; }
   .hero-content { padding: 80px 24px; }
   .section { padding: 64px 24px; }
@@ -728,12 +813,27 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#intake" class="nav-cta">Get Help</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://counsel.readylegal.net/">Counsel</a>
+  <a href="https://practices.readylegal.net/">Practice Areas</a>
+  <a href="https://pricing.readylegal.net/">Pricing</a>
+  <a href="https://about.readylegal.net/">About</a>
+  <a href="https://resources.readylegal.net/">Resources</a>
+  <a href="#intake" class="mobile-cta">Get Help</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="https://videos.files.wordpress.com/oI8YA2w7/18981048-hd_1920_1080_30fps.mp4" type="video/mp4">
+  <video autoplay="autoplay" muted="muted" loop="" playsinline="" class="hero-video">
+    <source src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/18981048-hd_1920_1080_30fps.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -759,16 +859,16 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 <section class="section">
   <p class="section-label">What We Do</p>
   <h2 class="section-title">Practice Areas</h2>
-  <p class="section-sub">Focused representation for contractors, small 
+  <p class="section-sub">Focused representation for contractors, small
 business owners, and clients who need results in the courtroom or at the
- negotiating table.</p>
+negotiating table.</p>
   <div class="practice-grid">
 
     <a href="https://practices.readylegal.net/#construction" class="practice-card">
       <div class="practice-icon-wrap">🏗️</div>
       <h3>Construction Law</h3>
-      <p>Liens, payment disputes, defect claims, contract review and 
-drafting, contractor licensing, DBPR/CILB matters, OSHA, and permitting 
+      <p>Liens, payment disputes, defect claims, contract review and
+drafting, contractor licensing, DBPR/CILB matters, OSHA, and permitting
 disputes.</p>
       <span class="practice-link">Learn More →</span>
     </a>
@@ -776,8 +876,8 @@ disputes.</p>
     <a href="https://practices.readylegal.net/#business" class="practice-card">
       <div class="practice-icon-wrap">💼</div>
       <h3>Business Law</h3>
-      <p>Business formation, contract drafting and negotiation, breach 
-of contract, unfair competition, non-competes, co-owner disputes, and 
+      <p>Business formation, contract drafting and negotiation, breach
+of contract, unfair competition, non-competes, co-owner disputes, and
 collections.</p>
       <span class="practice-link">Learn More →</span>
     </a>
@@ -785,8 +885,8 @@ collections.</p>
     <a href="https://practices.readylegal.net/#litigation" class="practice-card">
       <div class="practice-icon-wrap">⚖️</div>
       <h3>Litigation</h3>
-      <p>Commercial litigation, construction litigation, evictions, and 
-disputes requiring skilled courtroom representation to protect your 
+      <p>Commercial litigation, construction litigation, evictions, and
+disputes requiring skilled courtroom representation to protect your
 interests.</p>
       <span class="practice-link">Learn More →</span>
     </a>
@@ -798,18 +898,18 @@ interests.</p>
 <section class="why-section">
   <div class="why-inner">
     <div class="why-image">
-      <img src="https://readylegal.net/wp-content/uploads/2026/05/professional-picture-2.jpg" alt="Ready Legal Counsel" style="filter: grayscale(100%);">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/professional-picture-2.jpg" alt="Ready Legal Counsel" style="filter: grayscale(100%);">
     </div>
     <div class="why-content">
       <p class="section-label">Why Ready Legal</p>
       <h2 class="section-title">Clients First, Always.</h2>
-      <p>Ready Legal was born out of the idea that Orlando's small 
-business community should have access to prompt, capable, and effective 
-representation in their times of need. That core value is embodied in 
+      <p>Ready Legal was born out of the idea that Orlando's small
+business community should have access to prompt, capable, and effective
+representation in their times of need. That core value is embodied in
 the firm's name.</p>
       <p>What sets Ready Legal apart is more than legal knowledge — it's
- business judgment. As an entrepreneur-driven law firm, Ready Legal sees
- itself as a partner in its clients' success, sharing their drive to 
+business judgment. As an entrepreneur-driven law firm, Ready Legal sees
+itself as a partner in its clients' success, sharing their drive to
 grow and thrive.</p>
       <a href="https://pricing.readylegal.net/" class="btn-primary" style="margin-top:8px;">See Pricing</a>
     </div>
@@ -853,22 +953,22 @@ grow and thrive.</p>
   <h2 class="section-title centered">As Seen In</h2>
   <div class="press-grid">
     <a href="https://ampp.mydigitalpublication.com/may-2024/page-28" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2024/08/screenshot-2024-08-13-at-2.03.45e280afpm.png" alt="Publication">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2024-08-13-at-2.03.45e280afpm.png" alt="Publication">
     </a>
     <a href="https://www.law.com/dailybusinessreview/2024/07/02/floridas-new-procedure-for-removing-squatters-effective-in-july-use-with-caution/" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2025/05/screenshot-2025-05-07-at-12.56.03e280afpm.png" alt="Daily Business Review">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2025-05-07-at-12.56.03e280afpm.png" alt="Daily Business Review">
     </a>
     <a href="https://www.roofingcontractor.com/articles/99348-florida-aims-to-standardize-construction-lien-waivers" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2024/08/screenshot-2024-08-13-at-2.05.07e280afpm.png" alt="Roofing Contractor">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2024-08-13-at-2.05.07e280afpm.png" alt="Roofing Contractor">
     </a>
     <a href="https://nucaflorida.org/ditchmen/" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2025/05/screenshot-2025-05-07-at-12.48.15e280afpm.png" alt="Publication">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2025-05-07-at-12.48.15e280afpm.png" alt="Publication">
     </a>
     <a href="https://www.rev.com/blog/ediscovery-tools" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2025/06/screenshot-2025-06-16-at-12.58.31e280afpm-1.png" alt="Rev">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2025-06-16-at-12.58.31e280afpm-1.png" alt="Rev">
     </a>
     <a href="https://www.ehstoday.com/construction/article/55300992/proactive-safety-planning-is-vital-to-construction-safety" class="press-item" target="_blank">
-      <img src="https://readylegal.net/wp-content/uploads/2025/07/screenshot-2025-07-15-at-8.37.09-pm.png" alt="EHS Today">
+      <img src="Ready%20Legal%20_%20Orlando%20Business%20&amp;%20Construction%20Attorney_files/screenshot-2025-07-15-at-8.37.09-pm.png" alt="EHS Today">
     </a>
   </div>
   <p class="press-note">No endorsement or affiliation implied.</p>
@@ -927,8 +1027,8 @@ grow and thrive.</p>
   <div class="testimonial-inner">
     <p class="t-label">Feedback</p>
     <blockquote class="t-quote">
-      I heartily recommend Travis McConnell for your legal needs. He 
-listens to your concerns and offers alternatives towards solving your 
+      I heartily recommend Travis McConnell for your legal needs. He
+listens to your concerns and offers alternatives towards solving your
 issues.
     </blockquote>
     <div class="t-author">A. Horne</div>
@@ -976,8 +1076,8 @@ issues.
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for 
-Orlando's small business community. Construction law, business law, and 
+        <p>Prompt, capable, and effective legal representation for
+Orlando's small business community. Construction law, business law, and
 litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
@@ -1010,11 +1110,11 @@ litigation throughout Florida.</p>
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">
-        The information on this page is for general informational 
-purposes only and does not constitute legal advice. Nothing here should 
+        The information on this page is for general informational
+purposes only and does not constitute legal advice. Nothing here should
 be interpreted as an offer to provide legal services. No attorney-client
- relationship is formed until a written engagement agreement has been 
-executed by both parties. Services are limited to matters involving the 
+relationship is formed until a written engagement agreement has been
+executed by both parties. Services are limited to matters involving the
 State of Florida.
       </p>
       <p class="footer-copy">© 2025 Ready Legal</p>
@@ -1022,6 +1122,29 @@ State of Florida.
   </div>
 </footer>
 
+<script>
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var isOpen = false;
 
+hamburger.addEventListener('click', function() {
+  isOpen = !isOpen;
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+
+// Close menu when any link is tapped
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    isOpen = false;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+</script>
 
 </body></html>

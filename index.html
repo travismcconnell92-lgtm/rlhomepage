@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ready Legal | Orlando Business &amp; Construction Attorney</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
 :root {
   --navy: #0b2a4a;
   --navy-mid: #143a63;
@@ -21,10 +17,8 @@
   --text: #1a2332;
   --text-light: #5a6478;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Inter', sans-serif;
   background: var(--white);
@@ -32,9 +26,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
 /* HEADER */
-
 header {
   background: var(--navy);
   padding: 0 48px;
@@ -47,7 +39,6 @@ header {
   height: 68px;
   box-shadow: 0 2px 24px rgba(0,0,0,0.25);
 }
-
 .logo {
   color: white;
   text-decoration: none;
@@ -58,11 +49,8 @@ header {
   text-transform: uppercase;
   transition: color 0.3s;
 }
-
 .logo:hover { color: var(--orange); }
-
 nav { display: flex; gap: 28px; align-items: center; }
-
 nav a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
@@ -71,9 +59,7 @@ nav a {
   letter-spacing: 0.5px;
   transition: color 0.3s;
 }
-
 nav a:hover { color: white; }
-
 .nav-cta {
   background: var(--orange);
   color: white !important;
@@ -82,11 +68,79 @@ nav a:hover { color: white; }
   font-weight: 600 !important;
   transition: background 0.3s !important;
 }
-
 .nav-cta:hover { background: var(--orange-dark) !important; }
 
-/* HERO */
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: var(--navy-mid);
+  z-index: 99;
+  flex-direction: column;
+  padding: 8px 0 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-menu.open {
+  display: flex;
+  animation: menuSlideDown 0.22s ease forwards;
+}
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mobile-menu a {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, background 0.2s;
+}
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
+.mobile-menu .mobile-cta {
+  background: var(--orange);
+  color: white !important;
+  margin: 16px 24px 0;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700 !important;
+  padding: 14px 28px !important;
+  border-bottom: none !important;
+}
+.mobile-menu .mobile-cta:hover { background: var(--orange-dark) !important; }
+
+/* HERO */
 .hero {
   position: relative;
   min-height: 90vh;
@@ -95,7 +149,6 @@ nav a:hover { color: white; }
   background: var(--navy);
   overflow: hidden;
 }
-
 .hero-video {
   position: absolute;
   inset: 0;
@@ -105,14 +158,12 @@ nav a:hover { color: white; }
   object-position: center;
   z-index: 0;
 }
-
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(100deg, rgba(11,42,74,0.95) 40%, rgba(11,42,74,0.5) 100%);
   z-index: 1;
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -121,7 +172,6 @@ nav a:hover { color: white; }
   padding: 100px 48px;
   width: 100%;
 }
-
 .hero-eyebrow {
   font-size: 11px;
   font-weight: 600;
@@ -132,7 +182,6 @@ nav a:hover { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.1s;
 }
-
 .hero h1 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -144,12 +193,7 @@ nav a:hover { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.25s;
 }
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--orange);
-}
-
+.hero h1 em { font-style: italic; color: var(--orange); }
 .hero p {
   font-size: 17px;
   color: rgba(255,255,255,0.72);
@@ -160,7 +204,6 @@ nav a:hover { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.4s;
 }
-
 .hero-buttons {
   display: flex;
   gap: 14px;
@@ -168,7 +211,6 @@ nav a:hover { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.55s;
 }
-
 .btn-primary {
   background: var(--orange);
   color: white;
@@ -181,9 +223,7 @@ nav a:hover { color: white; }
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
 }
-
 .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
-
 .btn-ghost {
   border: 1.5px solid rgba(255,255,255,0.35);
   color: rgba(255,255,255,0.85);
@@ -195,11 +235,8 @@ nav a:hover { color: white; }
   transition: border-color 0.3s, color 0.3s, background 0.3s;
   display: inline-block;
 }
-
 .btn-ghost:hover { border-color: white; color: white; background: rgba(255,255,255,0.07); }
-
 /* TRUST BAR */
-
 .trust-bar {
   background: var(--off-white);
   border-bottom: 1px solid var(--gray);
@@ -210,7 +247,6 @@ nav a:hover { color: white; }
   gap: 40px;
   flex-wrap: wrap;
 }
-
 .trust-item {
   font-size: 12px;
   font-weight: 600;
@@ -221,17 +257,13 @@ nav a:hover { color: white; }
   align-items: center;
   gap: 8px;
 }
-
 .trust-item span { color: var(--orange); font-size: 14px; }
-
 /* SECTIONS */
-
 .section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 96px 48px;
 }
-
 .section-label {
   font-size: 11px;
   font-weight: 600;
@@ -240,7 +272,6 @@ nav a:hover { color: white; }
   color: var(--orange);
   margin-bottom: 14px;
 }
-
 .section-title {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -249,9 +280,7 @@ nav a:hover { color: white; }
   line-height: 1.15;
   margin-bottom: 16px;
 }
-
 .centered { text-align: center; }
-
 .section-sub {
   font-size: 16px;
   color: var(--text-light);
@@ -259,18 +288,14 @@ nav a:hover { color: white; }
   font-weight: 300;
   margin-bottom: 56px;
 }
-
 .section-sub.centered { margin: 0 auto 56px; max-width: 580px; }
-
 /* PRACTICE AREAS */
-
 .practice-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 56px;
 }
-
 .practice-card {
   background: var(--off-white);
   border: 1px solid var(--gray);
@@ -283,13 +308,11 @@ nav a:hover { color: white; }
   border-radius: 2px;
   display: block;
 }
-
 .practice-card:hover {
   border-top-color: var(--orange);
   box-shadow: 0 8px 32px rgba(0,0,0,0.09);
   transform: translateY(-3px);
 }
-
 .practice-icon-wrap {
   width: 52px;
   height: 52px;
@@ -302,9 +325,7 @@ nav a:hover { color: white; }
   font-size: 24px;
   transition: background 0.3s;
 }
-
 .practice-card:hover .practice-icon-wrap { background: var(--orange); }
-
 .practice-card h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -312,13 +333,7 @@ nav a:hover { color: white; }
   color: var(--navy);
   margin-bottom: 12px;
 }
-
-.practice-card p {
-  font-size: 14px;
-  color: var(--text-light);
-  line-height: 1.75;
-}
-
+.practice-card p { font-size: 14px; color: var(--text-light); line-height: 1.75; }
 .practice-link {
   position: absolute;
   bottom: 24px;
@@ -330,16 +345,9 @@ nav a:hover { color: white; }
   color: var(--navy);
   transition: color 0.3s;
 }
-
 .practice-card:hover .practice-link { color: var(--orange); }
-
 /* WHY SECTION */
-
-.why-section {
-  background: var(--navy);
-  padding: 96px 48px;
-}
-
+.why-section { background: var(--navy); padding: 96px 48px; }
 .why-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -348,9 +356,7 @@ nav a:hover { color: white; }
   gap: 80px;
   align-items: center;
 }
-
 .why-image { position: relative; }
-
 .why-image::before {
   content: '';
   position: absolute;
@@ -360,18 +366,9 @@ nav a:hover { color: white; }
   border-radius: 3px;
   opacity: 0.5;
 }
-
-.why-image img {
-  width: 100%;
-  display: block;
-  border-radius: 3px;
-  position: relative;
-  z-index: 1;
-}
-
+.why-image img { width: 100%; display: block; border-radius: 3px; position: relative; z-index: 1; }
 .why-content .section-label { color: var(--orange); }
 .why-content .section-title { color: white; }
-
 .why-content p {
   font-size: 16px;
   color: rgba(255,255,255,0.68);
@@ -379,16 +376,13 @@ nav a:hover { color: white; }
   margin-bottom: 18px;
   font-weight: 300;
 }
-
 /* RECOGNITION */
-
 .rec-section {
   background: var(--off-white);
   padding: 80px 48px;
   border-top: 1px solid var(--gray);
   border-bottom: 1px solid var(--gray);
 }
-
 .rec-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -398,13 +392,10 @@ nav a:hover { color: white; }
   gap: 40px;
   flex-wrap: wrap;
 }
-
 .rec-text { max-width: 400px; }
 .rec-text .section-title { font-size: 32px; }
 .rec-text p { font-size: 15px; color: var(--text-light); font-weight: 300; margin-top: 10px; }
-
 .rec-badges { display: flex; gap: 20px; flex-wrap: wrap; }
-
 .rec-badge {
   background: white;
   border: 1px solid var(--gray);
@@ -413,26 +404,10 @@ nav a:hover { color: white; }
   border-radius: 3px;
   min-width: 180px;
 }
-
-.rec-badge .org {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-
+.rec-badge .org { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
 .rec-badge .detail { font-size: 12px; color: var(--text-light); line-height: 1.6; }
-
 /* PRESS */
-
-.press-section {
-  padding: 80px 48px;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
+.press-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
 .press-grid {
   display: flex;
   gap: 32px;
@@ -441,10 +416,8 @@ nav a:hover { color: white; }
   margin-top: 48px;
   align-items: center;
 }
-
 .press-item { display: block; opacity: 0.7; transition: opacity 0.3s, transform 0.2s; }
 .press-item:hover { opacity: 1; transform: translateY(-2px); }
-
 .press-item img {
   height: 52px;
   width: auto;
@@ -453,19 +426,11 @@ nav a:hover { color: white; }
   filter: grayscale(40%);
   transition: filter 0.3s;
 }
-
 .press-item:hover img { filter: grayscale(0%); }
 .press-note { font-size: 11px; color: #bbb; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 40px; }
-
 /* SERVICES */
-
-.services-section {
-  background: var(--navy);
-  padding: 96px 48px;
-}
-
+.services-section { background: var(--navy); padding: 96px 48px; }
 .services-inner { max-width: 1200px; margin: 0 auto; }
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -474,9 +439,7 @@ nav a:hover { color: white; }
   margin-top: 56px;
   border: 1px solid rgba(255,255,255,0.08);
 }
-
 .service-col { background: var(--navy); padding: 44px 32px; }
-
 .service-col h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -487,9 +450,7 @@ nav a:hover { color: white; }
   padding-bottom: 14px;
   border-bottom: 2px solid var(--orange);
 }
-
 .service-col ul { list-style: none; }
-
 .service-col li {
   font-size: 13px;
   color: rgba(255,255,255,0.65);
@@ -500,24 +461,11 @@ nav a:hover { color: white; }
   line-height: 1.5;
   font-weight: 300;
 }
-
 .service-col li::before { content: '—'; color: var(--orange); flex-shrink: 0; font-weight: 600; }
-
 /* TESTIMONIAL */
-
 .testimonial-section { padding: 96px 48px; background: white; }
-
 .testimonial-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-
-.t-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 28px;
-}
-
+.t-label { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 28px; }
 .t-quote {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
@@ -528,7 +476,6 @@ nav a:hover { color: white; }
   margin-bottom: 36px;
   position: relative;
 }
-
 .t-quote::before {
   content: '\201C';
   font-size: 100px;
@@ -539,19 +486,11 @@ nav a:hover { color: white; }
   line-height: 1;
   font-family: 'Inter', sans-serif;
 }
-
 .t-author { font-size: 14px; font-weight: 600; color: var(--navy); }
 .t-role { font-size: 13px; color: var(--text-light); margin-top: 4px; font-weight: 300; }
 .t-disclaimer { font-size: 11px; color: #bbb; margin-top: 24px; }
-
 /* CTA / FORM */
-
-.cta-section {
-  background: var(--off-white);
-  border-top: 1px solid var(--gray);
-  padding: 96px 48px;
-}
-
+.cta-section { background: var(--off-white); border-top: 1px solid var(--gray); padding: 96px 48px; }
 .cta-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -560,23 +499,10 @@ nav a:hover { color: white; }
   gap: 80px;
   align-items: start;
 }
-
 .cta-left p { font-size: 16px; color: var(--text-light); line-height: 1.85; font-weight: 300; margin-bottom: 28px; }
-
-.cta-phone {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 34px;
-  color: var(--navy);
-  text-decoration: none;
-  display: block;
-  margin-bottom: 6px;
-  transition: color 0.3s;
-}
-
+.cta-phone { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--navy); text-decoration: none; display: block; margin-bottom: 6px; transition: color 0.3s; }
 .cta-phone:hover { color: var(--orange); }
 .cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
-
 .form-box {
   background: white;
   border: 1px solid var(--gray);
@@ -585,28 +511,9 @@ nav a:hover { color: white; }
   border-radius: 3px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
-
-.form-box h3 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--navy);
-  margin-bottom: 24px;
-}
-
-form label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-
-form input,
-form select,
-form textarea {
+.form-box h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: var(--navy); margin-bottom: 24px; }
+form label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+form input, form select, form textarea {
   width: 100%;
   padding: 11px 14px;
   border: 1px solid var(--gray);
@@ -619,17 +526,8 @@ form textarea {
   transition: border-color 0.2s, background 0.2s;
   box-sizing: border-box;
 }
-
-form input:focus,
-form select:focus,
-form textarea:focus {
-  outline: none;
-  border-color: var(--orange);
-  background: white;
-}
-
+form input:focus, form select:focus, form textarea:focus { outline: none; border-color: var(--orange); background: white; }
 form textarea { resize: vertical; }
-
 form button {
   background: var(--orange);
   color: white;
@@ -644,15 +542,10 @@ form button {
   letter-spacing: 0.5px;
   transition: background 0.3s;
 }
-
 form button:hover { background: var(--orange-dark); }
-
 /* FOOTER */
-
 footer { background: #07192c; padding: 56px 48px 28px; }
-
 .footer-inner { max-width: 1200px; margin: 0 auto; }
-
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -661,46 +554,28 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   border-bottom: 1px solid rgba(255,255,255,0.07);
   margin-bottom: 28px;
 }
-
 .footer-brand .logo { display: block; margin-bottom: 14px; }
-
 .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
-
-.footer-col h4 {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 18px;
-}
-
+.footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
 .footer-col ul { list-style: none; }
 .footer-col li { margin-bottom: 9px; }
-
 .footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
 .footer-col a:hover { color: var(--orange); }
-
 .footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
 .footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
 .footer-contact a:hover { color: var(--orange); }
-
 .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
-
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
-
 /* ANIMATIONS */
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 /* RESPONSIVE */
-
 @media (max-width: 960px) {
   nav { display: none; }
+  .hamburger { display: flex; }
   header { padding: 0 24px; }
   .hero-content { padding: 80px 24px; }
   .section { padding: 64px 24px; }
@@ -712,7 +587,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .why-section, .services-section, .rec-section, .press-section, .cta-section { padding: 64px 24px; }
 }
-
 </style>
 </head>
 <body>
@@ -728,7 +602,22 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#intake" class="nav-cta">Get Help</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://counsel.readylegal.net/">Counsel</a>
+  <a href="https://practices.readylegal.net/">Practice Areas</a>
+  <a href="https://pricing.readylegal.net/">Pricing</a>
+  <a href="https://about.readylegal.net/">About</a>
+  <a href="https://resources.readylegal.net/">Resources</a>
+  <a href="#intake" class="mobile-cta">Get Help</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -759,38 +648,34 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 <section class="section">
   <p class="section-label">What We Do</p>
   <h2 class="section-title">Practice Areas</h2>
-  <p class="section-sub">Focused representation for contractors, small 
+  <p class="section-sub">Focused representation for contractors, small
 business owners, and clients who need results in the courtroom or at the
- negotiating table.</p>
+negotiating table.</p>
   <div class="practice-grid">
-
     <a href="https://practices.readylegal.net/#construction" class="practice-card">
       <div class="practice-icon-wrap">🏗️</div>
       <h3>Construction Law</h3>
-      <p>Liens, payment disputes, defect claims, contract review and 
-drafting, contractor licensing, DBPR/CILB matters, OSHA, and permitting 
+      <p>Liens, payment disputes, defect claims, contract review and
+drafting, contractor licensing, DBPR/CILB matters, OSHA, and permitting
 disputes.</p>
       <span class="practice-link">Learn More →</span>
     </a>
-
     <a href="https://practices.readylegal.net/#business" class="practice-card">
       <div class="practice-icon-wrap">💼</div>
       <h3>Business Law</h3>
-      <p>Business formation, contract drafting and negotiation, breach 
-of contract, unfair competition, non-competes, co-owner disputes, and 
+      <p>Business formation, contract drafting and negotiation, breach
+of contract, unfair competition, non-competes, co-owner disputes, and
 collections.</p>
       <span class="practice-link">Learn More →</span>
     </a>
-
     <a href="https://practices.readylegal.net/#litigation" class="practice-card">
       <div class="practice-icon-wrap">⚖️</div>
       <h3>Litigation</h3>
-      <p>Commercial litigation, construction litigation, evictions, and 
-disputes requiring skilled courtroom representation to protect your 
+      <p>Commercial litigation, construction litigation, evictions, and
+disputes requiring skilled courtroom representation to protect your
 interests.</p>
       <span class="practice-link">Learn More →</span>
     </a>
-
   </div>
 </section>
 
@@ -803,13 +688,13 @@ interests.</p>
     <div class="why-content">
       <p class="section-label">Why Ready Legal</p>
       <h2 class="section-title">Clients First, Always.</h2>
-      <p>Ready Legal was born out of the idea that Orlando's small 
-business community should have access to prompt, capable, and effective 
-representation in their times of need. That core value is embodied in 
+      <p>Ready Legal was born out of the idea that Orlando's small
+business community should have access to prompt, capable, and effective
+representation in their times of need. That core value is embodied in
 the firm's name.</p>
       <p>What sets Ready Legal apart is more than legal knowledge — it's
- business judgment. As an entrepreneur-driven law firm, Ready Legal sees
- itself as a partner in its clients' success, sharing their drive to 
+business judgment. As an entrepreneur-driven law firm, Ready Legal sees
+itself as a partner in its clients' success, sharing their drive to
 grow and thrive.</p>
       <a href="https://pricing.readylegal.net/" class="btn-primary" style="margin-top:8px;">See Pricing</a>
     </div>
@@ -880,7 +765,6 @@ grow and thrive.</p>
     <p class="section-label centered" style="color:var(--orange);">What We Handle</p>
     <h2 class="section-title centered" style="color:white;">Services Available</h2>
     <div class="services-grid">
-
       <div class="service-col">
         <h3>Construction Law</h3>
         <ul>
@@ -893,7 +777,6 @@ grow and thrive.</p>
           <li>Local permitting issues and disputes</li>
         </ul>
       </div>
-
       <div class="service-col">
         <h3>Business Law</h3>
         <ul>
@@ -905,7 +788,6 @@ grow and thrive.</p>
           <li>Non-compete and non-disclosure agreements</li>
         </ul>
       </div>
-
       <div class="service-col">
         <h3>Litigation</h3>
         <ul>
@@ -917,7 +799,6 @@ grow and thrive.</p>
           <li>Co-owner and partnership disputes</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
@@ -927,8 +808,8 @@ grow and thrive.</p>
   <div class="testimonial-inner">
     <p class="t-label">Feedback</p>
     <blockquote class="t-quote">
-      I heartily recommend Travis McConnell for your legal needs. He 
-listens to your concerns and offers alternatives towards solving your 
+      I heartily recommend Travis McConnell for your legal needs. He
+listens to your concerns and offers alternatives towards solving your
 issues.
     </blockquote>
     <div class="t-author">A. Horne</div>
@@ -951,19 +832,14 @@ issues.
       <h3>Request a Consultation</h3>
       <form action="https://formspree.io/f/xgonadnj" method="POST">
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
-
         <label>Name</label>
         <input type="text" name="name" placeholder="Jane Smith" required="">
-
         <label>Email</label>
         <input type="email" name="email" placeholder="jane@example.com" required="">
-
         <label>Phone</label>
         <input type="tel" name="phone" placeholder="(407) 555-0000">
-
         <label>Briefly Describe Your Legal Matter</label>
         <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
-
         <button type="submit">Get Help →</button>
       </form>
     </div>
@@ -976,8 +852,8 @@ issues.
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for 
-Orlando's small business community. Construction law, business law, and 
+        <p>Prompt, capable, and effective legal representation for
+Orlando's small business community. Construction law, business law, and
 litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
@@ -1010,11 +886,11 @@ litigation throughout Florida.</p>
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">
-        The information on this page is for general informational 
-purposes only and does not constitute legal advice. Nothing here should 
+        The information on this page is for general informational
+purposes only and does not constitute legal advice. Nothing here should
 be interpreted as an offer to provide legal services. No attorney-client
- relationship is formed until a written engagement agreement has been 
-executed by both parties. Services are limited to matters involving the 
+relationship is formed until a written engagement agreement has been
+executed by both parties. Services are limited to matters involving the
 State of Florida.
       </p>
       <p class="footer-copy">© 2025 Ready Legal</p>
@@ -1022,6 +898,28 @@ State of Florida.
   </div>
 </footer>
 
+<script>
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var isOpen = false;
 
+hamburger.addEventListener('click', function() {
+  isOpen = !isOpen;
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    isOpen = false;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+</script>
 
 </body></html>

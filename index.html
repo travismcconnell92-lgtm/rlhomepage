@@ -237,6 +237,7 @@ nav a:hover { color: white; }
   display: inline-block;
 }
 .btn-ghost:hover { border-color: white; color: white; background: rgba(255,255,255,0.07); }
+
 /* TRUST BAR */
 .trust-bar {
   background: var(--off-white);
@@ -259,6 +260,7 @@ nav a:hover { color: white; }
   gap: 8px;
 }
 .trust-item span { color: var(--orange); font-size: 14px; }
+
 /* SECTIONS */
 .section {
   max-width: 1200px;
@@ -290,6 +292,7 @@ nav a:hover { color: white; }
   margin-bottom: 56px;
 }
 .section-sub.centered { margin: 0 auto 56px; max-width: 580px; }
+
 /* PRACTICE AREAS */
 .practice-grid {
   display: grid;
@@ -347,6 +350,7 @@ nav a:hover { color: white; }
   transition: color 0.3s;
 }
 .practice-card:hover .practice-link { color: var(--orange); }
+
 /* WHY SECTION */
 .why-section { background: var(--navy); padding: 96px 48px; }
 .why-inner {
@@ -377,6 +381,7 @@ nav a:hover { color: white; }
   margin-bottom: 18px;
   font-weight: 300;
 }
+
 /* RECOGNITION */
 .rec-section {
   background: var(--off-white);
@@ -407,6 +412,7 @@ nav a:hover { color: white; }
 }
 .rec-badge .org { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
 .rec-badge .detail { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+
 /* PRESS */
 .press-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
 .press-grid {
@@ -429,6 +435,7 @@ nav a:hover { color: white; }
 }
 .press-item:hover img { filter: grayscale(0%); }
 .press-note { font-size: 11px; color: #bbb; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 40px; }
+
 /* SERVICES */
 .services-section { background: var(--navy); padding: 96px 48px; }
 .services-inner { max-width: 1200px; margin: 0 auto; }
@@ -463,36 +470,12 @@ nav a:hover { color: white; }
   font-weight: 300;
 }
 .service-col li::before { content: '—'; color: var(--orange); flex-shrink: 0; font-weight: 600; }
-/* TESTIMONIAL */
-.testimonial-section { padding: 96px 48px 0; background: white; }
-.testimonial-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.t-label { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 28px; }
-.t-quote {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(18px, 2.5vw, 24px);
-  color: var(--navy);
-  line-height: 1.65;
-  font-style: italic;
-  margin-bottom: 36px;
-  position: relative;
-}
-.t-quote::before {
-  content: '\201C';
-  font-size: 100px;
-  color: var(--orange);
-  opacity: 0.12;
-  position: absolute;
-  top: -32px; left: -10px;
-  line-height: 1;
-  font-family: 'Inter', sans-serif;
-}
-.t-author { font-size: 14px; font-weight: 600; color: var(--navy); }
-.t-role { font-size: 13px; color: var(--text-light); margin-top: 4px; font-weight: 300; }
-.t-disclaimer { font-size: 11px; color: #bbb; margin-top: 24px; }
-/* ELFSIGHT REVIEWS WRAPPER */
-.reviews-section { background: white; padding: 48px 48px 64px; }
+
+/* REVIEWS */
+.reviews-section { background: white; padding: 64px 48px; }
 .reviews-inner { max-width: 900px; margin: 0 auto; }
+.t-disclaimer { font-size: 11px; color: #bbb; margin-top: 16px; text-align: center; }
+
 /* CTA / FORM */
 .cta-section { background: var(--off-white); border-top: 1px solid var(--gray); padding: 96px 48px; }
 .cta-inner {
@@ -547,6 +530,7 @@ form button {
   transition: background 0.3s;
 }
 form button:hover { background: var(--orange-dark); }
+
 /* FOOTER */
 footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
@@ -571,11 +555,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 /* RESPONSIVE */
 @media (max-width: 960px) {
   nav { display: none; }
@@ -590,7 +576,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .cta-inner { grid-template-columns: 1fr; gap: 48px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .why-section, .services-section, .rec-section, .press-section, .cta-section { padding: 64px 24px; }
-  .reviews-section { padding: 32px 24px 48px; }
+  .reviews-section { padding: 48px 24px; }
 }
 </style>
 </head>
@@ -808,25 +794,11 @@ grow and thrive.</p>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial-section">
-  <div class="testimonial-inner">
-    <p class="t-label">Feedback</p>
-    <blockquote class="t-quote">
-      I heartily recommend Travis McConnell for your legal needs. He
-listens to your concerns and offers alternatives towards solving your
-issues.
-    </blockquote>
-    <div class="t-author">A. Horne</div>
-    <div class="t-role">Prospective Client</div>
-    <p class="t-disclaimer">All legal issues are unique. Client results may vary.</p>
-  </div>
-</section>
-
 <!-- GOOGLE REVIEWS -->
 <section class="reviews-section">
   <div class="reviews-inner">
     <div class="elfsight-app-515bd97c-b11b-4feb-8839-4c033662401f" data-elfsight-app-lazy></div>
+    <p class="t-disclaimer">All legal issues are unique. Client results may vary.</p>
   </div>
 </section>
 
@@ -902,7 +874,7 @@ litigation throughout Florida.</p>
 purposes only and does not constitute legal advice. Nothing here should
 be interpreted as an offer to provide legal services. No attorney-client
 relationship is formed until a written engagement agreement has been
-executed by both parties. Services are limited to matters regarding the
+executed by both parties. Services are limited to matters involving the
 State of Florida.
       </p>
       <p class="footer-copy">© 2025 Ready Legal</p>

@@ -361,7 +361,7 @@ nav a:hover { color: white; }
   gap: 80px;
   align-items: center;
 }
-.why-image { position: relative; }
+.why-image { position: relative; max-width: 60%; }
 .why-image::before {
   content: '';
   position: absolute;
@@ -422,12 +422,12 @@ nav a:hover { color: white; }
 /* PRESS */
 .press-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
 .press-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-top: 48px;
   align-items: center;
+  justify-items: center;
 }
 .press-item { display: block; opacity: 0.7; transition: opacity 0.3s, transform 0.2s; }
 .press-item:hover { opacity: 1; transform: translateY(-2px); }

@@ -65,7 +65,7 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white !important;
   padding: 9px 20px;
-  border-radius: 3px;
+  border-radius: 6px;
   font-weight: 600 !important;
   transition: background 0.3s !important;
 }
@@ -133,7 +133,7 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white !important;
   margin: 16px 24px 0;
-  border-radius: 3px;
+  border-radius: 6px;
   text-align: center;
   font-weight: 700 !important;
   padding: 14px 28px !important;
@@ -216,20 +216,21 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white;
   padding: 14px 32px;
-  border-radius: 3px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.3px;
-  transition: background 0.3s, transform 0.2s;
+  /* transform removed from hover — proximity JS handles lift/scale */
+  transition: background 0.3s;
   display: inline-block;
 }
-.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--orange-dark); }
 .btn-ghost {
   border: 1.5px solid rgba(255,255,255,0.35);
   color: rgba(255,255,255,0.85);
   padding: 14px 32px;
-  border-radius: 3px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -401,6 +402,7 @@ nav a:hover { color: white; }
 .rec-text { max-width: 400px; }
 .rec-text .section-title { font-size: 32px; }
 .rec-text p { font-size: 15px; color: var(--text-light); font-weight: 300; margin-top: 10px; }
+.rec-right { display: flex; flex-direction: column; align-items: flex-start; }
 .rec-badges { display: flex; gap: 20px; flex-wrap: wrap; }
 .rec-badge {
   background: white;
@@ -409,14 +411,59 @@ nav a:hover { color: white; }
   padding: 24px 28px;
   border-radius: 3px;
   min-width: 180px;
+  /* proximity JS handles scale/lift; cursor: default keeps it feeling natural */
+  cursor: default;
 }
 .rec-badge .org { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
 .rec-badge .detail { font-size: 12px; color: var(--text-light); line-height: 1.6; }
 
 /* ANIMATION SECTION — desktop only */
-.rl-animation-section { display: block; background: #0b2a4a; padding: 24px 0; line-height: 0; }
-.rl-animation-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-.rl-animation-inner canvas { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
+.rl-animation-section { display: block; background: #0b2a4a; padding: 48px 0; line-height: 1; }
+.rl-animation-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.rl-anim-side {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rl-anim-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+  display: block;
+}
+.rl-anim-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+}
+.rl-anim-heading.light {
+  font-weight: 300;
+  font-size: 20px;
+  color: rgba(255,255,255,0.75);
+}
+.rl-anim-rule {
+  width: 32px;
+  height: 2px;
+  background: var(--orange);
+  margin-top: 18px;
+  border: none;
+}
+.rl-anim-canvas-wrap { flex: 1; min-width: 0; line-height: 0; }
+.rl-anim-canvas-wrap canvas { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
 @media (max-width: 960px) { .rl-animation-section { display: none; } }
 
 /* PRESS */
@@ -479,8 +526,49 @@ nav a:hover { color: white; }
 
 /* REVIEWS */
 .reviews-section { background: white; padding: 64px 48px; }
-.reviews-inner { max-width: 900px; margin: 0 auto; }
+.reviews-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.reviews-left {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 16px;
+}
+.reviews-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+.reviews-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 0;
+}
+.reviews-arrow {
+  display: block;
+  overflow: visible;
+  margin-top: 12px;
+}
+.reviews-right { flex: 1; min-width: 0; }
 .t-disclaimer { font-size: 11px; color: #bbb; margin-top: 16px; text-align: center; }
+@media (max-width: 960px) {
+  .reviews-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .reviews-left { padding-top: 0; }
+  .reviews-arrow { display: none; }
+}
 
 /* CTA / FORM */
 .cta-section { background: var(--off-white); border-top: 1px solid var(--gray); padding: 96px 48px; }
@@ -530,7 +618,7 @@ form button {
   font-size: 14px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
   letter-spacing: 0.5px;
   transition: background 0.3s;
@@ -694,7 +782,7 @@ the firm's name.</p>
 business judgment. As an entrepreneur-driven law firm, Ready Legal sees
 itself as a partner in its clients' success, sharing their drive to
 grow and thrive.</p>
-      <a href="https://pricing.readylegal.net/" class="btn-primary" style="margin-top:8px;">See Pricing</a>
+      <a href="https://counsel.readylegal.net/" class="btn-primary" style="margin-top:8px;">Counsel</a>
     </div>
   </div>
 </section>
@@ -706,26 +794,27 @@ grow and thrive.</p>
       <p class="section-label">Awards</p>
       <h2 class="section-title">Recognized By</h2>
       <p>Ready Legal's counsel has been recognized by two of the most respected peer-review rating services in the legal industry.</p>
-      <br>
-      <a href="https://counsel.readylegal.net/" class="btn-primary">See Details</a>
     </div>
-    <div class="rec-badges">
-      <div class="rec-badge">
-        <div class="org">Best Lawyers®</div>
-        <div class="detail">Construction Law</div>
+    <div class="rec-right">
+      <div class="rec-badges">
+        <div class="rec-badge">
+          <div class="org">Best Lawyers®</div>
+          <div class="detail">Construction Law</div>
+        </div>
+        <div class="rec-badge">
+          <div class="org">Best Lawyers®</div>
+          <div class="detail">Commercial Litigation</div>
+        </div>
+        <div class="rec-badge">
+          <div class="org">Best Lawyers®</div>
+          <div class="detail">Regulatory Law</div>
+        </div>
+        <div class="rec-badge">
+          <div class="org">Super Lawyers®</div>
+          <div class="detail">Construction Litigation</div>
+        </div>
       </div>
-      <div class="rec-badge">
-        <div class="org">Best Lawyers®</div>
-        <div class="detail">Commercial Litigation</div>
-      </div>
-      <div class="rec-badge">
-        <div class="org">Best Lawyers®</div>
-        <div class="detail">Regulatory Law</div>
-      </div>
-      <div class="rec-badge">
-        <div class="org">Super Lawyers®</div>
-        <div class="detail">Construction Litigation</div>
-      </div>
+      <a href="https://about.readylegal.net/" class="btn-primary" style="margin-top: 24px; display: inline-block;">About Us</a>
     </div>
   </div>
 </section>
@@ -733,7 +822,19 @@ grow and thrive.</p>
 <!-- ANIMATION: desktop only -->
 <div class="rl-animation-section">
   <div class="rl-animation-inner">
-    <canvas id="rl-anim-canvas" width="960" height="520"></canvas>
+    <div class="rl-anim-side">
+      <span class="rl-anim-label">Practice</span>
+      <h3 class="rl-anim-heading">Construction Law<br>Services</h3>
+      <hr class="rl-anim-rule">
+    </div>
+    <div class="rl-anim-canvas-wrap">
+      <canvas id="rl-anim-canvas" width="960" height="520"></canvas>
+    </div>
+    <div class="rl-anim-side" style="text-align: right; align-items: flex-end;">
+      <span class="rl-anim-label">Our Approach</span>
+      <h3 class="rl-anim-heading light">Helping you<br>keep building</h3>
+      <hr class="rl-anim-rule">
+    </div>
   </div>
 </div>
 <script>
@@ -847,8 +948,26 @@ observer.observe(canvas);
 <!-- GOOGLE REVIEWS -->
 <section class="reviews-section">
   <div class="reviews-inner">
-    <div class="elfsight-app-515bd97c-b11b-4feb-8839-4c033662401f" data-elfsight-app-lazy></div>
-    <p class="t-disclaimer">All legal issues are unique. Client results may vary.</p>
+    <div class="reviews-left">
+      <p class="reviews-label">Reviews</p>
+      <p class="reviews-heading">What our clients<br>are saying</p>
+      <!-- L-shaped connector: dashed rounded path + double chevron arrowhead -->
+      <svg class="reviews-arrow" width="172" height="58" viewBox="0 0 172 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- rounded L path, dashed orange -->
+        <path d="M 22 2 L 22 32 A 12 12 0 0 0 34 44 L 130 44"
+              stroke="#ff8c2a" stroke-width="2" stroke-linecap="round"
+              stroke-dasharray="5 5" fill="none" opacity="0.7"/>
+        <!-- double chevron arrowhead in solid orange -->
+        <polyline points="120,35 132,44 120,53"
+                  stroke="#ff8c2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="132,35 144,44 132,53"
+                  stroke="#ff8c2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="reviews-right">
+      <div class="elfsight-app-515bd97c-b11b-4feb-8839-4c033662401f" data-elfsight-app-lazy></div>
+      <p class="t-disclaimer">All legal issues are unique. Client results may vary.</p>
+    </div>
   </div>
 </section>
 
@@ -932,6 +1051,7 @@ State of Florida.
   </div>
 </footer>
 
+<!-- HAMBURGER MENU SCRIPT -->
 <script>
 var hamburger = document.getElementById('hamburger');
 var mobileMenu = document.getElementById('mobileMenu');
@@ -954,6 +1074,111 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
     mobileMenu.setAttribute('aria-hidden', 'true');
   });
 });
+</script>
+
+<!-- PROXIMITY EFFECT SCRIPT -->
+<script>
+/* ─── PROXIMITY EFFECT ────────────────────────────────────────────────
+   macOS Dock-style: elements scale/brighten as the cursor approaches.
+   Targets: hero buttons + award badges. Add more in CONTAINERS below.
+────────────────────────────────────────────────────────────────────── */
+(function () {
+
+  // ── CONFIG ──────────────────────────────────────────────────────────
+  var CFG = {
+    range       : 180,   // px — how far away the effect starts
+    maxScale    : 1.07,  // e.g. 1.07 = 7% larger at closest point
+    maxBright   : 1.14,  // brightness() at closest point (1 = no change)
+    maxLift     : 4,     // px upward nudge at closest point
+    easingPower : 2,     // higher = effect concentrates nearer the element
+    transIn     : 'transform 0.07s ease-out, filter 0.07s ease-out',
+    transOut    : 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.45s ease',
+  };
+
+  // ── SELECTORS ───────────────────────────────────────────────────────
+  var CONTAINERS = [
+    { wrap: 'header',         items: '.nav-cta'     },  // Get Help nav button
+    { wrap: '.hero-buttons',  items: '.btn-primary' },  // hero phone button
+    { wrap: '.why-content',   items: '.btn-primary' },  // Counsel button
+    { wrap: '.rec-badges',    items: '.rec-badge'   },  // award badges
+    { wrap: '.press-section', items: '.press-item'  },  // as seen in logos
+  ];
+
+  // ── MOBILE GUARD ────────────────────────────────────────────────────
+  // Touch-primary devices don't have a hovering cursor — skip entirely.
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+  // ── COLLECT TARGETS ─────────────────────────────────────────────────
+  var targets = [];
+  CONTAINERS.forEach(function (def) {
+    var root = def.wrap ? document.querySelector(def.wrap) : document;
+    if (def.wrap && !root) return;
+    root.querySelectorAll(def.items).forEach(function (el) {
+      el.style.willChange  = 'transform, filter';
+      el.style.transition  = CFG.transOut;
+      targets.push(el);
+    });
+  });
+  if (!targets.length) return;
+
+  // ── HELPERS ─────────────────────────────────────────────────────────
+
+  // Shortest distance from point (x,y) to DOMRect; 0 if inside.
+  function distToRect(x, y, r) {
+    var dx = Math.max(r.left - x, 0, x - r.right);
+    var dy = Math.max(r.top  - y, 0, y - r.bottom);
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // Maps 0-1 linear proximity to 0-1 intensity (eased).
+  function ease(t) { return Math.pow(t, CFG.easingPower); }
+
+  // ── RENDER LOOP ─────────────────────────────────────────────────────
+  var mx = -9999, my = -9999, rafPending = false;
+
+  function update() {
+    rafPending = false;
+    targets.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var dist = distToRect(mx, my, rect);
+
+      if (dist >= CFG.range) {
+        // Cursor is outside range — smoothly return to default.
+        el.style.transition = CFG.transOut;
+        el.style.transform  = 'scale(1) translateY(0px)';
+        el.style.filter     = 'brightness(1)';
+        return;
+      }
+
+      // proximity: 0 at range edge, 1 at element surface
+      var proximity = ease(1 - dist / CFG.range);
+      var scale     = 1 + (CFG.maxScale - 1) * proximity;
+      var bright    = 1 + (CFG.maxBright - 1) * proximity;
+      var lift      = CFG.maxLift * proximity;
+
+      el.style.transition = CFG.transIn;
+      el.style.transform  = 'scale(' + scale.toFixed(4) + ') translateY(' + (-lift).toFixed(2) + 'px)';
+      el.style.filter     = 'brightness(' + bright.toFixed(4) + ')';
+    });
+  }
+
+  function scheduleUpdate() {
+    if (!rafPending) { rafPending = true; requestAnimationFrame(update); }
+  }
+
+  // ── EVENTS ──────────────────────────────────────────────────────────
+  document.addEventListener('pointermove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    scheduleUpdate();
+  });
+
+  // Pointer leaving the window — reset everything.
+  document.addEventListener('pointerleave', function () {
+    mx = -9999; my = -9999;
+    scheduleUpdate();
+  });
+
+}());
 </script>
 
 </body></html>

@@ -306,7 +306,7 @@ nav a:hover { color: white; }
   line-height: 1.6;
 }
 .form-call-note a {
-  color: var(--orange-dark);
+  color: var(--navy);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
@@ -316,7 +316,7 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white;
   padding: 14px 32px;
-  border-radius: 10px;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -330,7 +330,7 @@ nav a:hover { color: white; }
   border: 1.5px solid rgba(255,255,255,0.35);
   color: rgba(255,255,255,0.85);
   padding: 14px 32px;
-  border-radius: 6px;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -628,6 +628,16 @@ nav a:hover { color: white; }
 .rl-anim-canvas-wrap canvas { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
 @media (max-width: 960px) { .rl-animation-section { display: none; } }
 
+/* MOBILE BRIDGE — shown between reviews and recognition on mobile */
+.rl-mobile-bridge { display: none; background: var(--navy); padding: 64px 32px; text-align: center; }
+.rl-mobile-bridge-inner { max-width: 400px; margin: 0 auto; }
+.bridge-rule { display: block; width: 40px; height: 2px; background: var(--orange); margin: 0 auto 28px; }
+.bridge-rule.bottom { margin: 28px auto 0; }
+.bridge-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+.bridge-heading { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.2; color: white; margin-bottom: 18px; }
+.bridge-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; }
+@media (max-width: 960px) { .rl-mobile-bridge { display: block; } }
+
 /* PRESS */
 .press-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
 .press-grid {
@@ -884,6 +894,7 @@ form button {
   background: var(--orange);
   color: white;
   border: none;
+  border-radius: 50px;
   width: 100%;
   padding: 14px;
   font-size: 14px;
@@ -932,9 +943,9 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   nav { display: none; }
   .hamburger { display: flex; }
   header { padding: 0 24px; }
-  .hero { min-height: calc(100dvh - 68px); align-items: flex-start; }
-  .hero-content { padding: 18px 24px 56px; }
-  .hero-phone-mobile { display: inline-block; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: white; text-decoration: none; background: var(--orange); padding: 12px 24px; border-radius: 8px; margin-bottom: 24px; }
+  .hero { min-height: calc(100dvh - 68px); align-items: center; }
+  .hero-content { padding: 24px 24px 56px; }
+  .hero-phone-mobile { display: block; width: fit-content; margin-left: auto; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: white; text-decoration: none; background: var(--orange); padding: 12px 24px; border-radius: 50px; margin-bottom: 24px; }
   .hero-phone-mobile:hover { background: var(--orange-dark); }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero h1 { display: none; }
@@ -1022,7 +1033,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   font-family: 'Inter', sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -1582,6 +1593,17 @@ const observer=new IntersectionObserver(entries=>{entries[0].isIntersecting?star
 observer.observe(canvas);
 })();
 </script>
+
+<!-- MOBILE BRIDGE -->
+<div class="rl-mobile-bridge">
+ <div class="rl-mobile-bridge-inner">
+  <span class="bridge-rule"></span>
+  <p class="bridge-eyebrow">Recognition</p>
+  <h3 class="bridge-heading">It's not just our clients<br>who have good things to say.</h3>
+  <p class="bridge-sub">The legal industry's most rigorous peer-review services have recognized our attorneys too — not something you ask for, but something you earn.</p>
+  <span class="bridge-rule bottom"></span>
+ </div>
+</div>
 
 <!-- RECOGNITION -->
 <section class="rec-section">

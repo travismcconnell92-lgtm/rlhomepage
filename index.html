@@ -631,6 +631,11 @@ nav a:hover { color: white; }
 
 /* MOBILE ATTORNEY SECTION — shown between reviews and recognition on mobile */
 .mob-atty-section { display: none; background: var(--navy); padding: 48px 28px 52px; }
+.mob-atty-photo-wrap {
+  position: relative;
+  width: 100px; height: 100px;
+  margin: 0 auto 20px;
+}
 .mob-atty-photo {
   width: 100px; height: 100px;
   border-radius: 50%;
@@ -638,7 +643,22 @@ nav a:hover { color: white; }
   object-position: center top;
   border: 3px solid var(--orange);
   display: block;
-  margin: 0 auto 20px;
+}
+.mob-atty-photo-wrap::after {
+  content: '';
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  top: -2px; left: 50%;
+  margin-left: -5px;
+  transform-origin: 5px 53px;
+  animation: atty-orbit 3s linear infinite;
+  box-shadow: 0 0 6px rgba(255,140,42,0.8);
+}
+@keyframes atty-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 .mob-atty-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); text-align: center; margin-bottom: 8px; }
 .mob-atty-name { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 700; color: white; text-align: center; margin-bottom: 4px; }
@@ -1723,7 +1743,9 @@ observer.observe(canvas);
 <!-- MOBILE ATTORNEY SECTION -->
 <div class="mob-atty-section">
  <p class="mob-atty-eyebrow">Your Attorney</p>
- <img src="https://readylegal.net/wp-content/uploads/2026/05/professional-picture-2.jpg" alt="Travis S. McConnell" class="mob-atty-photo">
+ <div class="mob-atty-photo-wrap">
+  <img src="https://readylegal.net/wp-content/uploads/2026/05/professional-picture-2.jpg" alt="Travis S. McConnell" class="mob-atty-photo">
+ </div>
  <h3 class="mob-atty-name">Travis S. McConnell</h3>
  <p class="mob-atty-title">Business &amp; Construction Lawyer — Orlando, FL</p>
  <span class="mob-atty-rule"></span>

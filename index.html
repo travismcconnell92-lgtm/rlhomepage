@@ -685,15 +685,28 @@ nav a:hover { color: white; }
   align-items: center;
   justify-items: center;
 }
-.press-item { display: block; opacity: 0.7; transition: opacity 0.3s, transform 0.2s; }
-.press-item:hover { opacity: 1; transform: translateY(-2px); }
+.press-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50px;
+  padding: 12px 28px;
+  opacity: 0.75;
+  transition: opacity 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.press-item:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.10); }
 .press-item img {
-  height: 52px;
+  height: 44px;
   width: auto;
-  max-width: 160px;
+  max-width: 140px;
   object-fit: contain;
   filter: grayscale(40%);
   transition: filter 0.3s;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  display: block;
 }
 .press-item:hover img { filter: grayscale(0%); }
 .press-note { font-size: 11px; color: #bbb; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 40px; }
@@ -1772,7 +1785,7 @@ observer.observe(canvas);
  <div class="rec-text">
  <p class="section-label">Awards</p>
  <h2 class="section-title">Recognized By</h2>
- <p>Ready Legal's counsel has been recognized by Super Lawyers® and Best Lawyers®, two respected peer-review rating services in the legal industry.</p>
+ <p>Ready Legal's counsel has been recognized by Super Lawyers® and Best Lawyers®, two prominent peer-review rating services in the legal industry.</p>
  <svg class="reviews-arrow" width="172" height="58" viewBox="0 0 172 58" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:12px;">
    <path d="M 22 2 L 22 32 A 12 12 0 0 0 34 44 L 130 44" stroke="#ff8c2a" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 5" fill="none" opacity="0.7"/>
    <polyline points="120,35 132,44 120,53" stroke="#ff8c2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>

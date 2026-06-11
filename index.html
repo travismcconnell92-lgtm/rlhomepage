@@ -471,7 +471,8 @@ nav a:hover { color: white; }
   gap: 80px;
   align-items: center;
 }
-.why-image { position: relative; max-width: 60%; }
+.why-inner > * { min-width: 0; }
+.why-image { position: relative; width: 100%; max-width: 60%; align-self: start; min-width: 0; overflow: hidden; }
 .why-image::before {
   content: '';
   position: absolute;
@@ -481,7 +482,7 @@ nav a:hover { color: white; }
   border-radius: 3px;
   opacity: 0.5;
 }
-.why-image img { width: 100%; display: block; border-radius: 3px; position: relative; z-index: 1; }
+.why-image img { width: 100%; max-width: 100%; display: block; border-radius: 3px; position: relative; z-index: 1; }
 .why-content .section-label { color: var(--orange); }
 .why-content .section-title { color: white; }
 .why-content p {

@@ -711,6 +711,8 @@ nav a:hover { color: white; }
   font-weight: 300;
 }
 .service-col li::before { content: '—'; color: var(--orange); flex-shrink: 0; font-weight: 600; }
+.service-teaser { display: none; }
+.service-chevron { display: none; }
 
 /* REVIEWS */
 .reviews-section { background: white; padding: 64px 48px; }
@@ -1107,42 +1109,78 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   }
   /* Hero overlay */
   .hero-overlay { background: linear-gradient(to bottom, rgba(11,42,74,1.0) 0%, rgba(11,42,74,0.70) 100%); }
-  /* Services accordion */
-  .services-section .services-grid { display: block; }
+  /* Services accordion — card design */
+  .services-section .services-grid { display: flex; flex-direction: column; gap: 10px; }
   .services-section .service-col {
-    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding: 0;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-left: 3px solid var(--orange);
+    border-radius: 12px;
+    background: rgba(20,58,99,0.70);
+    overflow: hidden;
+    transition: background 0.3s;
   }
-  .services-section .service-col:first-child { border-top: 1px solid rgba(255,255,255,0.10); }
+  .services-section .service-col.open { background: rgba(20,58,99,0.95); }
   .services-section .service-col h3 {
+    margin-bottom: 0;
+    padding: 20px 18px 0 20px;
+    border-bottom: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
     cursor: pointer;
     user-select: none;
-    margin-bottom: 0;
   }
-  .services-section .service-col h3::after {
-    content: '+';
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--orange);
-    transition: transform 0.3s ease;
+  .services-section .service-col h3::after { display: none; }
+  .service-teaser {
+    display: block;
+    font-size: 12px;
+    color: rgba(255,255,255,0.40);
+    letter-spacing: 0.3px;
+    padding: 5px 20px 18px;
+    overflow: hidden;
+    max-height: 40px;
+    opacity: 1;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  }
+  .service-col.open .service-teaser {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .service-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,140,42,0.45);
     flex-shrink: 0;
-    margin-left: 12px;
+    margin-left: auto;
+    transition: border-color 0.3s, transform 0.35s;
   }
-  .services-section .service-col.open h3::after {
-    content: '−';
+  .service-chevron::after {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--orange);
+    border-bottom: 2px solid var(--orange);
+    transform: rotate(45deg) translate(-1px, -2px);
+    transition: transform 0.35s ease;
   }
+  .service-col.open .service-chevron { border-color: var(--orange); }
+  .service-col.open .service-chevron::after { transform: rotate(-135deg) translate(-1px, 2px); }
   .services-section .service-col ul {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding-bottom 0.4s ease;
-    padding-bottom: 0;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
   }
   .services-section .service-col.open ul {
-    max-height: 320px;
-    padding-bottom: 20px;
+    max-height: 340px;
+    padding: 4px 20px 20px;
   }
   /* Back to top */
   .back-to-top {
@@ -1745,6 +1783,7 @@ observer.observe(canvas);
  <div class="services-grid">
  <div class="service-col">
  <h3>Construction Law</h3>
+ <p class="service-teaser">Contract drafting · Lien claims · Defect disputes · OSHA</p>
  <ul>
  <li>Contract drafting, review, and negotiation</li>
  <li>Construction payment &amp; defect disputes</li>
@@ -1756,6 +1795,7 @@ observer.observe(canvas);
  </div>
  <div class="service-col">
  <h3>Business Law</h3>
+ <p class="service-teaser">Business formation · Contract review · Litigation</p>
  <ul>
  <li>Contract drafting, review, and negotiations</li>
  <li>Business formation and governance documents</li>
@@ -1767,6 +1807,7 @@ observer.observe(canvas);
  </div>
  <div class="service-col">
  <h3>Litigation</h3>
+ <p class="service-teaser">General · Commercial · Evictions · Collections</p>
  <ul>
  <li>General litigation</li>
  <li>Commercial litigation</li>
@@ -1921,6 +1962,10 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
 <script>
 if (window.innerWidth <= 960) {
   document.querySelectorAll('.services-section .service-col h3').forEach(function(h3) {
+    var chevron = document.createElement('span');
+    chevron.className = 'service-chevron';
+    chevron.setAttribute('aria-hidden', 'true');
+    h3.appendChild(chevron);
     h3.addEventListener('click', function() {
       this.parentElement.classList.toggle('open');
     });

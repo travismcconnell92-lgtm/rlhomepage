@@ -629,15 +629,30 @@ nav a:hover { color: white; }
 .rl-anim-canvas-wrap canvas { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
 @media (max-width: 960px) { .rl-animation-section { display: none; } }
 
-/* MOBILE BRIDGE — shown between reviews and recognition on mobile */
-.rl-mobile-bridge { display: none; background: var(--navy); padding: 64px 32px; text-align: center; }
-.rl-mobile-bridge-inner { max-width: 400px; margin: 0 auto; }
-.bridge-rule { display: block; width: 40px; height: 2px; background: var(--orange); margin: 0 auto 28px; }
-.bridge-rule.bottom { margin: 28px auto 0; }
-.bridge-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
-.bridge-heading { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.2; color: white; margin-bottom: 18px; }
-.bridge-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; }
-@media (max-width: 960px) { .rl-mobile-bridge { display: block; } }
+/* MOBILE ATTORNEY SECTION — shown between reviews and recognition on mobile */
+.mob-atty-section { display: none; background: var(--navy); padding: 48px 28px 52px; }
+.mob-atty-photo {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--orange);
+  display: block;
+  margin: 0 auto 20px;
+}
+.mob-atty-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); text-align: center; margin-bottom: 8px; }
+.mob-atty-name { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 700; color: white; text-align: center; margin-bottom: 4px; }
+.mob-atty-title { font-size: 13px; color: rgba(255,255,255,0.5); text-align: center; letter-spacing: 0.5px; margin-bottom: 20px; }
+.mob-atty-rule { display: block; width: 36px; height: 2px; background: var(--orange); margin: 0 auto 20px; }
+.mob-atty-bio { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.75; text-align: center; margin-bottom: 28px; }
+.mob-atty-btn { display: block; text-align: center; }
+@media (max-width: 960px) {
+  .mob-atty-section { display: block; }
+  .rec-text .reviews-arrow { display: none; }
+}
+@media (min-width: 961px) {
+  .rec-text .reviews-arrow { display: none; }
+}
 
 /* PRESS */
 .press-section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
@@ -1668,14 +1683,16 @@ observer.observe(canvas);
 })();
 </script>
 
-<!-- MOBILE BRIDGE -->
-<div class="rl-mobile-bridge">
- <div class="rl-mobile-bridge-inner">
-  <span class="bridge-rule"></span>
-  <p class="bridge-eyebrow">Recognition</p>
-  <h3 class="bridge-heading">It's not just our clients<br>who have good things to say.</h3>
-  <p class="bridge-sub">The legal industry's most rigorous peer-review services have recognized our attorneys too — not something you ask for, but something you earn.</p>
-  <span class="bridge-rule bottom"></span>
+<!-- MOBILE ATTORNEY SECTION -->
+<div class="mob-atty-section">
+ <p class="mob-atty-eyebrow">Your Attorney</p>
+ <img src="https://readylegal.net/wp-content/uploads/2026/05/professional-picture-2.jpg" alt="Travis S. McConnell" class="mob-atty-photo">
+ <h3 class="mob-atty-name">Travis S. McConnell</h3>
+ <p class="mob-atty-title">Business &amp; Construction Lawyer — Orlando, FL</p>
+ <span class="mob-atty-rule"></span>
+ <p class="mob-atty-bio">Travis founded Ready Legal to serve small businesses after practicing at one of the largest law firms in the country. A former Army JAG officer and Engineer Corps veteran, he has represented clients ranging from Fortune-20 corporations to family-owned businesses — bringing both legal experience and business judgment to every matter.</p>
+ <div class="mob-atty-btn">
+  <a href="https://counsel.readylegal.net/" class="btn-primary">Meet Travis</a>
  </div>
 </div>
 

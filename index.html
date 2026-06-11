@@ -279,6 +279,7 @@ nav a:hover { color: white; }
   flex-shrink: 0;
   line-height: 1.5;
 }
+.hero-phone-mobile { display: none; }
 .hero-form {
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.45s;
@@ -931,10 +932,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   nav { display: none; }
   .hamburger { display: flex; }
   header { padding: 0 24px; }
-  .hero { min-height: calc(100dvh - 68px); }
-  .hero-content { padding: 48px 24px 56px; }
+  .hero { min-height: calc(100dvh - 68px); align-items: flex-start; }
+  .hero-content { padding: 18px 24px 56px; }
+  .hero-phone-mobile { display: inline-block; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: white; text-decoration: none; background: var(--orange); padding: 12px 24px; border-radius: 8px; margin-bottom: 24px; }
+  .hero-phone-mobile:hover { background: var(--orange-dark); }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero h1 { display: none; }
+  .hero-overlay { background: rgba(11,42,74,0.30); }
   .hero-tagline { font-size: 22px; font-weight: 600; letter-spacing: 1px; margin-bottom: 24px; color: white; }
   .hero-services { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
   .hero-services li { font-size: 14px; }
@@ -1143,12 +1147,13 @@ function closeMobileForm() {
  <div class="hero-grid">
  <div class="hero-left">
  <h1><span class="hl-ready">READY</span> <span class="hl-legal">LEGAL</span><span class="sr-only"> — Orlando Construction &amp; Business Law Firm</span></h1>
+ <a href="tel:4072582002" class="hero-phone-mobile">(407) 258-2002</a>
  <p class="hero-tagline">Orlando, Florida — Construction, Business &amp; Litigation</p>
  <ul class="hero-services">
  <li>Construction Liens</li>
  <li>Business Litigation</li>
  <li>Construction Defects</li>
- <li>Contract Review &amp; Drafting</li>
+ <li>Contract Counsel</li>
  <li>Business Formation</li>
  <li>Landlord Evictions</li>
  <li>Real Estate Disputes</li>

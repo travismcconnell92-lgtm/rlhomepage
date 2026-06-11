@@ -929,6 +929,15 @@ form input, form select, form textarea {
 }
 form input:focus, form select:focus, form textarea:focus { outline: none; border-color: var(--orange); background: white; }
 form textarea { resize: vertical; }
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus,
+form input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px var(--off-white) inset !important;
+  box-shadow: 0 0 0 60px var(--off-white) inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
 form button {
   background: var(--orange);
   color: white;
@@ -1269,14 +1278,14 @@ footer { background: #07192c; padding: 56px 48px 28px; }
  <button class="mobile-form-panel-close" onclick="closeMobileForm()" aria-label="Close">✕</button>
  <div class="form-box" style="box-shadow:none;border:none;padding:0;">
  <h3>Request a Consultation</h3>
- <form action="https://formspree.io/f/xgonadnj" method="POST">
+ <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off">
  <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
  <label for="mob-name">Name</label>
- <input type="text" id="mob-name" name="name" placeholder="Jane Smith" required>
+ <input type="text" id="mob-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
  <label for="mob-email">Email</label>
- <input type="email" id="mob-email" name="email" placeholder="jane@example.com" required>
+ <input type="email" id="mob-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
  <label for="mob-phone">Phone</label>
- <input type="tel" id="mob-phone" name="phone" placeholder="(407) 555-0000">
+ <input type="tel" id="mob-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
  <label for="mob-message">Briefly Describe Your Legal Matter</label>
  <textarea id="mob-message" name="message" rows="3" placeholder="Tell us about your situation..." required></textarea>
  <button type="submit">Get Help →</button>
@@ -1324,14 +1333,14 @@ function closeMobileForm() {
  <div class="form-box">
  <h3>Request a Consultation</h3>
  <p class="form-call-note">Want to skip the wait? Call <a href="tel:4072582002">(407) 258-2002</a> now.</p>
- <form action="https://formspree.io/f/xgonadnj" method="POST">
+ <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off">
  <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
  <label for="hero-name">Name</label>
- <input type="text" id="hero-name" name="name" placeholder="Jane Smith" required="">
+ <input type="text" id="hero-name" name="name" placeholder="Jane Smith" required="" autocomplete="new-password">
  <label for="hero-email">Email</label>
- <input type="email" id="hero-email" name="email" placeholder="jane@example.com" required="">
+ <input type="email" id="hero-email" name="email" placeholder="jane@example.com" required="" autocomplete="new-password">
  <label for="hero-phone">Phone</label>
- <input type="tel" id="hero-phone" name="phone" placeholder="(407) 555-0000">
+ <input type="tel" id="hero-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
  <label for="hero-message">Briefly Describe Your Legal Matter</label>
  <textarea id="hero-message" name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
  <button type="submit">Get Help →</button>
@@ -1891,14 +1900,14 @@ observer.observe(canvas);
  </div>
  <div class="form-box">
  <h3>Request a Consultation</h3>
- <form action="https://formspree.io/f/xgonadnj" method="POST">
+ <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off">
  <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
  <label for="cta-name">Name</label>
- <input type="text" id="cta-name" name="name" placeholder="Jane Smith" required="">
+ <input type="text" id="cta-name" name="name" placeholder="Jane Smith" required="" autocomplete="new-password">
  <label for="cta-email">Email</label>
- <input type="email" id="cta-email" name="email" placeholder="jane@example.com" required="">
+ <input type="email" id="cta-email" name="email" placeholder="jane@example.com" required="" autocomplete="new-password">
  <label for="cta-phone">Phone</label>
- <input type="tel" id="cta-phone" name="phone" placeholder="(407) 555-0000">
+ <input type="tel" id="cta-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
  <label for="cta-message">Briefly Describe Your Legal Matter</label>
  <textarea id="cta-message" name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
  <button type="submit">Get Help →</button>
@@ -2002,6 +2011,47 @@ if (window.innerWidth <= 960) {
     });
   });
 }
+</script>
+
+<!-- FORM SUBMIT — fixes iOS autofill not serializing on native POST -->
+<script>
+document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    var required = form.querySelectorAll('[required]');
+    var missing = false;
+    required.forEach(function(el) {
+      if (!el.value.trim()) { missing = true; el.style.borderColor = '#e53e3e'; }
+      else el.style.borderColor = '';
+    });
+    if (missing) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r) {
+      if (r.ok) {
+        btn.textContent = 'Sent ✓';
+        form.reset();
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Get Help →';
+        alert('Something went wrong. Please call us directly at (407) 258-2002.');
+      }
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Get Help →';
+      alert('Something went wrong. Please call us directly at (407) 258-2002.');
+    });
+  });
+});
 </script>
 
 <!-- PROXIMITY EFFECT SCRIPT -->

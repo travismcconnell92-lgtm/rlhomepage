@@ -116,7 +116,7 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white !important;
   padding: 9px 20px;
-  border-radius: 8px;
+  border-radius: 50px;
   font-weight: 600 !important;
   transition: background 0.3s !important;
   white-space: nowrap;
@@ -185,7 +185,7 @@ nav a:hover { color: white; }
   background: var(--orange);
   color: white !important;
   margin: 16px 24px 0;
-  border-radius: 8px;
+  border-radius: 50px;
   text-align: center;
   font-weight: 700 !important;
   padding: 14px 28px !important;
@@ -279,7 +279,8 @@ nav a:hover { color: white; }
   flex-shrink: 0;
   line-height: 1.5;
 }
-.hero-phone-mobile { display: none; }
+/* HEADER PHONE (mobile only) */
+.header-phone-mobile { display: none; }
 .hero-form {
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.45s;
@@ -900,7 +901,6 @@ form button {
   font-size: 14px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
-  border-radius: 10px;
   cursor: pointer;
   letter-spacing: 0.5px;
   transition: background 0.3s;
@@ -945,8 +945,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   header { padding: 0 24px; }
   .hero { min-height: calc(100dvh - 68px); align-items: center; }
   .hero-content { padding: 24px 24px 56px; }
-  .hero-phone-mobile { display: block; width: fit-content; margin-left: auto; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: white; text-decoration: none; background: var(--orange); padding: 12px 24px; border-radius: 50px; margin-bottom: 24px; }
-  .hero-phone-mobile:hover { background: var(--orange-dark); }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero h1 { display: none; }
   .hero-overlay { background: linear-gradient(to bottom, rgba(11,42,74,0.95) 0%, rgba(11,42,74,0.40) 100%); }
@@ -1078,6 +1076,82 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   padding: 4px 8px;
 }
 
+/* BACK TO TOP */
+.back-to-top { display: none; }
+@media (max-width: 960px) {
+  /* Header phone */
+  .header-phone-mobile {
+    display: block;
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    margin-right: 16px;
+  }
+  /* Hero overlay */
+  .hero-overlay { background: linear-gradient(to bottom, rgba(11,42,74,1.0) 0%, rgba(11,42,74,0.70) 100%); }
+  /* Services accordion */
+  .services-section .services-grid { display: block; }
+  .services-section .service-col {
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .services-section .service-col:first-child { border-top: 1px solid rgba(255,255,255,0.10); }
+  .services-section .service-col h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0;
+  }
+  .services-section .service-col h3::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--orange);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .services-section .service-col.open h3::after {
+    content: '−';
+  }
+  .services-section .service-col ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding-bottom 0.4s ease;
+    padding-bottom: 0;
+  }
+  .services-section .service-col.open ul {
+    max-height: 320px;
+    padding-bottom: 20px;
+  }
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    text-align: center;
+    padding: 24px 0 8px;
+  }
+  .back-to-top button {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.55);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .back-to-top button:hover { border-color: var(--orange); color: var(--orange); }
+}
+
 </style>
 </head>
 <body>
@@ -1085,6 +1159,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 <!-- HEADER -->
 <header>
  <a href="https://readylegal.net/" class="logo">READY LEGAL</a>
+ <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
  <nav>
  <a href="https://counsel.readylegal.net/">Counsel</a>
  <a href="https://practices.readylegal.net/">Practice Areas</a>
@@ -1158,7 +1233,6 @@ function closeMobileForm() {
  <div class="hero-grid">
  <div class="hero-left">
  <h1><span class="hl-ready">READY</span> <span class="hl-legal">LEGAL</span><span class="sr-only"> — Orlando Construction &amp; Business Law Firm</span></h1>
- <a href="tel:4072582002" class="hero-phone-mobile">(407) 258-2002</a>
  <p class="hero-tagline">Orlando, Florida — Construction, Business &amp; Litigation</p>
  <ul class="hero-services">
  <li>Construction Liens</li>
@@ -1750,6 +1824,9 @@ observer.observe(canvas);
 <footer>
  <div class="footer-inner">
  <div class="footer-top">
+ <div class="back-to-top">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑ &nbsp; Back to Top</button>
+ </div>
  <div class="footer-brand">
  <a href="https://readylegal.net/" class="logo">READY LEGAL</a>
  <p>Prompt, capable, and effective legal representation for
@@ -1821,6 +1898,17 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
     mobileMenu.setAttribute('aria-hidden', 'true');
   });
 });
+</script>
+
+<!-- SERVICES ACCORDION (mobile only) -->
+<script>
+if (window.innerWidth <= 960) {
+  document.querySelectorAll('.services-section .service-col h3').forEach(function(h3) {
+    h3.addEventListener('click', function() {
+      this.parentElement.classList.toggle('open');
+    });
+  });
+}
 </script>
 
 <!-- PROXIMITY EFFECT SCRIPT -->

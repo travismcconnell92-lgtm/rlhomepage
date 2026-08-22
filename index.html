@@ -1256,7 +1256,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 <!-- HEADER -->
 <header>
- <a href="https://readylegal.net/" class="logo">READY LEGAL</a>
+ <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
  <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
  <nav>
  <a href="https://counsel.readylegal.net/">Counsel</a>
@@ -1280,7 +1280,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
  <a href="https://pricing.readylegal.net/">Pricing</a>
  <a href="https://about.readylegal.net/">About</a>
  <a href="https://resources.readylegal.net/">Resources</a>
- <a href="https://readylegal.net/#intake">Request a Consultation</a>
+ <a href="#" onclick="openMobileForm(); return false;">Request a Consultation</a>
  <a href="tel:4072582002" class="mobile-cta">(407) 258-2002</a>
 </div>
 <!-- MOBILE CONSULT BAR (mobile only) -->
@@ -1940,7 +1940,7 @@ observer.observe(canvas);
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑ &nbsp; Back to Top</button>
  </div>
  <div class="footer-brand">
- <a href="https://readylegal.net/" class="logo">READY LEGAL</a>
+ <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
  <p>Prompt, capable, and effective legal representation for
 Orlando's small business community. Construction law, business law, and
 litigation throughout Florida.</p>
@@ -1955,7 +1955,7 @@ litigation throughout Florida.</p>
  <li><a href="https://pricing.readylegal.net/">Pricing</a></li>
  <li><a href="https://about.readylegal.net/">About</a></li>
  <li><a href="https://resources.readylegal.net/">Resources</a></li>
- <li><a href="https://readylegal.net/#contact">Contact</a></li>
+ <li><a href="#contact" onclick="if (window.innerWidth <= 960) { openMobileForm(); return false; }">Contact</a></li>
  </ul>
  </div>
  <div class="footer-col">
